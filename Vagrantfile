@@ -38,8 +38,8 @@ Vagrant.configure(2) do |config|
     config.vm.box = "ubuntu/trusty64"
 
     # set up network configuration
-    config.vm.network :forwarded_port, guest: 3000,  host: 3000
-    config.vm.network :forwarded_port, guest: 443, host: 10443
+    # config.vm.network :forwarded_port, guest: 3000,  host: 3000
+    # config.vm.network :forwarded_port, guest: 443, host: 10443
 
     ####
     ##
@@ -182,6 +182,11 @@ Vagrant.configure(2) do |config|
         # call rails provisioner - ruby installation requires a reboot, so uncomment all three of these lines
         # config.vm.provision :shell, privileged: false, path: "#{scripts_url}/rails", args: [ args_ruby_version, args_rails_version, args_package_list, args_user, args_group ]
         
+        ####
+        ## Heroku
+        ####
+        
+        config.vm.provision :shell, privileged: false, path: "#{scripts_url}/heroku"
 
         ####
         ## PostgreSQL

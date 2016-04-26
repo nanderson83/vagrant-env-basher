@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# suppress prompts
+export DEBIAN_FRONTEND=noninteractive
+
+# pull down the heroku repository
+wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh > /dev/null
+
+heroku > /dev/null
